@@ -1,0 +1,113 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Site Responsivo Simples</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      margin: 0;
+    }
+
+    header {
+      background-color: #000;
+      color: #fff;
+      padding: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+
+    nav ul li {
+      display: inline-block;
+      margin: 0 10px;
+    }
+
+    nav ul li a {
+      color: #fff;
+      text-decoration: none;
+    }
+
+    nav ul li a:hover {
+      color: #ccc;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      nav ul {
+        display: none;
+      }
+
+      nav ul li {
+        display: block;
+        margin: 0;
+      }
+
+      nav ul li a {
+        display: block;
+        padding: 10px;
+      }
+
+      nav ul li a:hover {
+        background-color: #ccc;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Site Responsivo Simples</h1>
+    <nav>
+      <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="#">Sobre</a></li>
+        <li><a href="#">Contato</a></li>
+      </ul>
+    </nav>
+    </header>
+    <main>
+        <section id="home">
+           <h2>Home</h2>
+           <p>Bem-vindo ao nosso site!</p>
+        </section>
+       
+        <section id="sobre">
+           <h2>Sobre</h2>
+           <p>Aqui você pode encontrar informações sobre nossa empresa.</p>
+        </section>
+       
+        <section id="contato">
+           <h2>Contato</h2>
+           <p>Entre em contato conosco para obter mais informações.</p>
+        </section>
+       </main>
+       <script>
+        const menuItems = document.querySelectorAll('nav ul li a');
+       
+        menuItems.forEach(item => {
+           item.addEventListener('click', event => {
+             event.preventDefault();
+       
+             const targetSection = document.querySelector(item.getAttribute('href'));
+       
+             if (targetSection) {
+               targetSection.scrollIntoView({ behavior: 'smooth' });
+             }
+           });
+        });
+       </script>
+</body>
+</html>
